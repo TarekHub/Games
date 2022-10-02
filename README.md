@@ -1,5 +1,5 @@
 # Games
-This repository containes come 2D games made by Python using Pygame librarie.
+This repository containes some 2D games made by Python using Pygame librarie.
 
 1. Snake :
 

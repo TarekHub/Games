@@ -7,6 +7,8 @@ import pygame
 BLACK = [0, 0, 0]
 WHITE = [255, 255, 255]
 GREEN = [0,  255, 0]
+RED = [255, 0, 0]
+
 
 Height = 400
 Width = 400
@@ -39,6 +41,7 @@ Snake = [[x_previous, y_previous + 1], [x_previous, y_previous + 2],
 Grille = []
 Score = 0
 Last = 0
+Head_Color = GREEN
 
 direction = "up"
 
@@ -108,9 +111,10 @@ while not Exit_Game:
 
     # Logic
 
-    # When the snake collide with oneself
+    # When the snake collide with himself
     for element in Snake:
         if x_Head_Snake == element[0]  and y_Head_Snake == element[1]:
+            Head_Color = RED
             direction = "stop"
 
     # Direction movement
@@ -132,7 +136,6 @@ while not Exit_Game:
         follow_the_lead()
     elif direction == "stop":
         x_Head_Snake = x_Head_Snake
-
 
     # When snake reaches borders
     if x_Head_Snake < 0 or x_Head_Snake >= Grid_Width :
@@ -156,7 +159,7 @@ while not Exit_Game:
     y0 = y_Head_Snake * pixels_by_square
 
     # Movement Head Snake
-    pygame.draw.rect(_surface, GREEN, pygame.Rect(x0, y0, pixels_by_square, pixels_by_square))
+    head = pygame.draw.rect(_surface, Head_Color, pygame.Rect(x0, y0, pixels_by_square, pixels_by_square))
     # The Rest
     for square in Snake:
         x0 = square[0] * pixels_by_square

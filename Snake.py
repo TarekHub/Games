@@ -2,6 +2,7 @@ import copy
 import random
 import sys
 
+import numpy as np
 import pygame
 
 BLACK = [0, 0, 0]
